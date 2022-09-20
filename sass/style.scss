@@ -1,0 +1,469 @@
+@import 'common.scss';
+
+// Header
+header {
+    position: fixed;
+    padding: 26px 0;
+    width: 100%;
+    top: 0;
+    background-color: $color-black-1;
+    z-index: 999;
+    .container{
+        display: flex;       
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo{
+        img{
+            display: block;
+        }
+    }
+    .navContent {
+        a{
+            @include font-regular-18;
+            text-decoration: none;
+            color: $color-white-0;
+        }
+    }
+    .bars{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-left: 32px;
+    }
+    .bars {
+        cursor: pointer;
+        span{
+            width: 24px;
+            height: 2px;
+            background-color: $color-white-0;
+        }
+    }
+}
+
+// Banner
+.banner{
+    background-image: url(../images/sketchBg.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 60%;
+    padding: 178px 0 48px;
+    .bannerContent {
+        max-width: 1066px;
+        width: 100%;
+        padding-bottom: 113px;
+        h1{
+            @include font-bold-76;
+            letter-spacing: 0.02em;
+            padding-bottom: 64px;
+        }
+    }
+    .bannerLogos{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+// We Expertize Section
+.expert{
+    .expertContainer{
+        display: flex;
+        justify-content: space-between;
+        ul{
+            position: sticky;
+            top: 78px;
+            height: 100%;
+            flex-basis: 47%;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            .active{
+                background-image: $linear-grediant-0;
+                font-weight: 500;
+                font-size: 56px;
+            }
+            a{
+                transition: all 0.5s;
+                @include font-regular-44;
+                background-image: $linear-grediant-2;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+    .expertContent{
+        padding: 32px 24px;
+        flex-basis: 53%;
+        .expertContentCard{
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            height: 100vh;
+            p{
+                @include font-regular-20;
+            }
+        }
+        .accordionQuestion{
+            display: none;
+        }
+    }
+    @media (max-width:768px){
+        .expertContainer{
+            ul{
+                display: none;
+            }
+        }
+        .expertContent{
+            .accordion{
+                padding-bottom: 24px;
+            }
+            .accordionQuestion{
+                cursor: pointer;
+                p{
+                    @include font-regular-44;
+                    background-image: $linear-grediant-2;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+            .current{
+                .accordionQuestion{
+                    p{
+                        background-image: $linear-grediant-0;
+                        font-weight: 500;
+                        font-size: 56px;        
+                    }
+                }
+                .expertContentCard{
+                    display: flex;
+                    height: fit-content;
+                    max-height: 100%;
+                    opacity: 1;
+                    transition: all .2s linear;
+                    will-change: opacity,max-height;
+                }
+            }
+            .expertContentCard{
+                padding-top: 24px;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: opacity .2s linear,max-height .2s linear;
+                will-change: opacity,max-height;
+            }
+            flex-basis: 100%;
+            .accordionQuestion{
+                display: block;
+            }
+        }
+    }
+}
+
+// Our featured projects
+.feature{
+    .featureContainer{
+        max-width: 1270px;
+        margin-left: auto;
+        overflow: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    .featureContent{
+        display: flex;
+        gap: 80px;
+        width: 200%;
+    }
+    .featureCard{
+        max-width: 520px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        h3{
+            @include font-bold-28;
+            padding-bottom: 8px;
+        }
+        p{
+            @include font-regular-20;
+            opacity: 0.9;
+            background: $linear-grediant-2;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+// Brand Logos
+.brandLogosContainer{
+    overflow: hidden;
+    max-height: 448px;
+    position: relative;
+    &::before{ 
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20%;
+        background: linear-gradient(180deg, #0b0d0f, #0b0d0f 0%, rgba(11, 13, 15, 0));
+        z-index: 9;
+    }
+    &::after{ 
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20%;
+        background: linear-gradient(0deg, #0b0d0f, #0b0d0f 0%, rgba(11, 13, 15, 0));
+        z-index: 9;
+    }
+    .brandLogos{
+        display: flex;
+        gap: 84px;
+        flex-wrap: wrap;
+        animation: moveTop 10s infinite linear;
+        position: relative;
+        justify-content: center;
+    }
+}
+
+
+// Industries we serve
+.industry{
+    .industryContent{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @media(max-width:1100px){
+            justify-content: center;
+        }
+    }
+    .industryCard{
+        max-width: 351px;
+        width: 100%;
+        padding: 32px 16px 43px 32px;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        z-index: 9;
+        &:hover{
+            a{
+                opacity: 1;
+            }
+            &::after{
+                content: "";
+                opacity: 1;
+            }
+        }
+        &::after{
+            background: url(../images/cardBg.svg), $linear-grediant-1;
+            width: 100%;
+            height: 100%;
+            content: "";
+            z-index: -1;
+            top: 0;
+            opacity: 0;
+            left: 0;
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            border-radius: 4px
+        }
+        h3{
+            @include font-bold-28;
+            color: $color-white-1;
+            padding-bottom: 8px;
+            transition: all 0.5s ease-in-out;
+        }
+        p{
+            @include font-regular-18($line-height: 164%);
+            color: $color-white-1;
+            padding-bottom: 27px;
+        }
+        .commonLink{
+            opacity: 0;
+        }
+    }
+}
+
+// Our tech stack
+.techLogos{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 68px;
+    @media (max-width:768px){
+        justify-content: center;
+    }
+    div{
+        max-width: 126px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            svg{
+                transform: scale(1.1);
+            }
+            path{
+                fill: #ff25be;     //Add the color in variable before u change here
+                stroke: $color-white-0;
+            }
+        }
+        svg{
+            transition: all 0.5s;
+        }
+    }
+    p{
+        @include font-regular-16($line-height: 19px);
+        padding-top: 12px;
+        color: $color-white-1;
+    }
+}
+
+// They love SB #testimonials
+.testimonial{
+    .testimonialContent{
+        display: flex;
+        justify-content: space-between;
+    }
+    .testimonialHeading{
+        max-width: 276px;
+        width: 100%;
+        h2{
+            @include font-bold-40;
+            background: $linear-grediant-2;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            span{
+                background: $linear-grediant-0;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .testimonialSliderContent{
+        display: flex;
+        gap: 46px;
+    }
+    .testimonialCard{
+        max-width: 324px;
+        width: 100%;
+        padding: 32px;
+        border: 1px solid #202324; //Add grediant later
+        margin-bottom: 32px;
+        p{
+            letter-spacing: 0.01em;
+            @include font-regular-18;
+            color: $color-white-2;
+            padding-bottom: 40px;
+        }
+    }
+}
+
+
+// Knowledge Centre
+.knowledge{
+    &Content{
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+    &ContentCard{
+        max-width: 340px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        p{
+            @include font-regular-18($line-height: 140%);
+            letter-spacing: 0.1em;
+            min-height: 76px;
+        }
+    }
+}
+
+
+// footer
+footer{
+    padding: 100px 0 40px;
+    .footerContainer{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 82px;
+        border-bottom: 1px solid $color-black-4;
+    }
+    .footerContent{
+        max-width: 400px;
+        width: 100%;
+        label{
+            @include font-regular-16($line-height: 124%);
+        }
+    }
+    .socialLinkImages{
+        display: flex;
+        gap: 32px;
+        padding: 24px 0 102px;
+        a{
+            display: inline-flex;
+        }
+    }
+    .footerAddress{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        p{
+            @include font-regular-20($line-height: 150%);
+
+        }
+    }
+    .footerContact{
+        display: flex;
+        align-items: flex-end;
+        border: 1px solid $color-black-3;
+    }
+    .footerContactCard{
+        width: 290px;
+        max-width: 100%;
+        padding: 24px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 40px;
+        &:first-child{
+            border-right: 1px solid $color-black-3;
+        }
+    }
+    .contactLink {
+        a{
+            @include font-regular-20($line-height: 132%);
+            color: $color-white-1;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .footerCopyright{
+        padding-top: 24px;
+        p{
+            @include font-regular-16($line-height: 19px);
+            color: $color-white-1;
+        }
+    }
+}
+
+@keyframes moveTop{
+    0%{
+        top: 0px;
+    }
+    100%{
+        top: -400px;
+    }
+}

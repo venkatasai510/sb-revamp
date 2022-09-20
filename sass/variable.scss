@@ -1,0 +1,68 @@
+// Grediant Colors
+$linear-grediant-0 : linear-gradient(91.94deg, #A2FACF -20.97%, #64ACFF 169.07%);
+$linear-grediant-1 : linear-gradient(146.61deg, #202324 -1.27%, rgba(35, 35, 35, 0) 101.4%);
+$linear-grediant-2 : linear-gradient(91.94deg, #FCFCFC -15.03%, #999999 169.07%);
+
+
+// colors*
+$color-white-0 : #ffffff;
+$color-white-1 : #BCBCBC;
+$color-white-2 : #B3B8BC;
+
+$color-black-0 : #000000;
+$color-black-1 : #0E0E10;
+$color-black-2 : #888888;
+$color-black-3 : #444444;
+$color-black-4 : #424242;
+
+
+
+
+// Regular Fonts
+@mixin font-regular-16($line-height: 132%){
+    font-weight: 400;
+    font-size: 16px;
+    line-height: $line-height;
+}
+@mixin font-regular-18($line-height: 150%){
+    font-weight: 400;
+    font-size: 18px;
+    line-height: $line-height;
+}
+@mixin font-regular-20($line-height: 164%){
+    font-weight: 400;
+    font-size: 20px;
+    line-height: $line-height;
+}
+@mixin font-regular-24($line-height: 150%) {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: $line-height;   
+}
+@mixin font-regular-44($line-height: 150%) {
+    font-weight: 400;
+    font-size: 44px;
+    line-height: $line-height;
+}
+
+// Bold Fonts
+@mixin font-bold-28($line-height: 150%) {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: $line-height;
+}
+@mixin font-bold-40($line-height: 140%) {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: $line-height;
+}
+@mixin font-bold-56($line-height: 124%) {
+    font-weight: 500;
+    font-size: 56px;
+    line-height: $line-height;
+}
+@mixin font-bold-76($line-height: 130%) {
+    font-weight: 500;
+    font-size: 76px;
+    line-height: $line-height;
+}
